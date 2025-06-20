@@ -19,7 +19,7 @@ A minimal, responsive personal portfolio website with a soft **lavender-themed**
 
 ## 🚀 Live Demo
 
-Check out the live version here: [your-username.github.io/lavender-portfolio](https://your-username.github.io/lavender-portfolio)
+Check out the live version here: [[your-username.github.io/lavender-portfolio](https://your-username.github.io/lavender-portfolio)](https://kavyapatel21190607.github.io/Simple-Protfolio/)
 
 ---
 
