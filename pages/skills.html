@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills - Kavya Patel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style class="css">
+        :root {
+      --lavender: #dcd6f7;
+      --lavender-dark: #a29bfe;
+      --text: #333350;
+      --bg-card: #ffffffcc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e6e0f8, #c4bfff);
+      color: var(--text);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    h1, h2, li, p {
+      text-shadow: 0 0 5px rgba(162, 155, 254, 0.7), 0 0 10px rgba(162, 155, 254, 0.5);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--lavender-dark);
+      font-size: 2.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      font-size: 1.1rem;
+      padding: 8px 0;
+    }
+
+    .category {
+      margin-top: 30px;
+    }
+
+    .category h2 {
+      font-size: 1.4rem;
+      color: var(--lavender-dark);
+    }
+
+    .back-button {
+      display: block;
+      margin: 30px auto 0;
+      background-color: var(--lavender-dark);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #8e7dff;
+    }
+
+    .easter-egg {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .easter-button {
+      background: transparent;
+      border: none;
+      color: var(--lavender-dark);
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💼 My Skill Set</h1>
+
+    <div class="category">
+      <h2>🌐 Web Technologies</h2>
+      <ul>
+        <li>💻 HTML5, CSS3, JavaScript (Vanilla + ES6+)</li>
+        <li>⚙️ Frameworks: React.js, Vue.js, Next.js</li>
+        <li>🎨 Responsive Design & UI/UX Principles</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>🧠 Programming Languages</h2>
+      <ul>
+        <li>🐍 Python (Fluent)</li>
+        <li>💡 C / C++ (Pro Level)</li>
+        <li>🧩 TypeScript</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>💻 Operating System & Tools</h2>
+      <ul>
+        <li>🐧 Linux Shell & CLI</li>
+        <li>🔐 Ethical Hacking Fundamentals</li>
+        <li>🧰 Git, GitHub, Docker Basics</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>🎯 Career Goals</h2>
+      <p>I aspire to become a top-tier <strong>Cybersecurity Expert 🔐</strong> and build systems that are as secure as they are scalable.</p>
+    </div>
+
+    <button class="back-button" onclick="goToDashboard()">⬅ Back to Dashboard</button>
+
+
+  </div>
+
+  <script>
+    function goToDashboard() {
+      window.location.href = 'dashboard.html';
+    }
+
+
+  </script>
+
+</body>
+</html>

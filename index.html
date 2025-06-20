@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #dcd6f7;
+      --lavender-dark: #a29bfe;
+      --text-color: #4b4b6f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--lavender), #e4e0f8);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+
+    .loading-wrapper {
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.6s ease-out;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .dots::after {
+      content: '';
+      animation: dots 1.5s infinite steps(3);
+    }
+
+    @keyframes dots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+
+    .progress-container {
+      width: 320px;
+      height: 18px;
+      background-color: #fff;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--lavender-dark);
+      transition: width 0.2s ease-in-out;
+    }
+
+    .percentage {
+      margin-top: 16px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      animation: bounce 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-4px); }
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.3rem;
+        padding: 0 10px;
+      }
+
+      .progress-container {
+        width: 80%;
+      }
+
+      .percentage {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loading-wrapper" id="loader">
+    <h1><span class="dots">Loading</span> the best portfolio experience</h1>
+    <div class="progress-container">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+    <div class="percentage" id="percent">0%</div>
+  </div>
+
+  <script>
+    let percent = 0;
+    const bar = document.getElementById("bar");
+    const percentText = document.getElementById("percent");
+    const loader = document.getElementById("loader");
+
+    const loading = setInterval(() => {
+      percent += 1;
+      bar.style.width = percent + "%";
+      percentText.textContent = percent + "%";
+
+      // Add a subtle color shift for visual interest
+      if (percent % 10 === 0) {
+        bar.style.background = `hsl(${260 + percent}, 70%, 80%)`;
+      }
+
+      if (percent >= 100) {
+        clearInterval(loading);
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = "pages/dashboard.html"; // Target page
+        }, 600);
+      }
+    }, 30);
+  </script>
+
+</body>
+</html>

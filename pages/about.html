@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Kavya Patel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #dcd6f7;
+      --lavender-dark: #a29bfe;
+      --text: #333350;
+      --bg-card: #ffffffcc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e6e0f8, #c4bfff);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      transition: opacity 0.6s ease-in-out;
+      opacity: 1;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--lavender-dark);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: var(--lavender-dark);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #7e74d1;
+    }
+    .easter-egg {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .easter-button {
+      background: transparent;
+      border: none;
+      color: var(--lavender-dark);
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🙋‍♀️ About Me</h1>
+    <p class="intro">
+      Hello! I'm <strong>Kavya Patel</strong>, a passionate and dedicated web developer and AI enthusiast with a deep curiosity for technology and innovation. I love building beautiful, user-friendly applications that solve real-world problems.
+    </p>
+    <p>
+      I specialize in full-stack development using technologies like <strong>React.js</strong>, <strong>TypeScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>. My recent project "Kissan Kalyan" is a multi-functional agricultural platform aimed at empowering Indian farmers. I also developed an AI model using TensorFlow to classify food and fruits via camera or image upload.
+    </p>
+    <p>
+      I enjoy turning ideas into reality through code, and I strive to keep learning and improving every day. Whether it’s through front-end design, machine learning models, or backend APIs, I bring a creative and enthusiastic approach to everything I build.
+    </p>
+
+
+
+   
+    <button class="btn" onclick="handelBack()">⬅ Back to Dashboard</button>
+  </div>
+
+  <script>
+    function handelBack(){
+        window.location.href = 'dashboard.html';
+    }
+
+    window.addEventListener('pageshow', () => {
+      document.body.classList.remove('fade-out');
+    });
+  </script>
+</body>
+</html>

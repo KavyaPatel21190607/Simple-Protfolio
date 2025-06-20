@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavya Patel - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style class="css">
+        body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e6e0f8, #c4bfff);
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #6c5ce7;
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      color: #6c5ce7;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-info, .skills, .achievements {
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: #6c5ce7;
+      color: white;
+      font-size: 1.1rem;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #8e7dff;
+    }
+
+    .easter-egg {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .easter-button {
+      background: transparent;
+      border: none;
+      color: #6c5ce7;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Kavya Patel</h1>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> kavyapatel1952007@gmail.com</p>
+      <p><strong>Phone:</strong> +91 7698929831</p>
+      <p><strong>LinkedIn:</strong> www.linkedin.com/in/kavya-patel-b010bb327</p>
+      <p><strong>GitHub:</strong> github.com/kavyapatel</p>
+    </div>
+
+    <div class="about-me">
+      <h2 class="section-title">About Me</h2>
+      <p>I'm a passionate Full-Stack Developer with a deep interest in Cybersecurity. I specialize in modern web technologies, such as React.js, JavaScript, TypeScript, Python, and C++. I have a strong command over Linux and am always looking to improve my skills.</p>
+    </div>
+
+    <div class="skills">
+      <h2 class="section-title">Skills</h2>
+      <ul>
+        <li>HTML5, CSS3, JavaScript (ES6+)</li>
+        <li>React.js, Vue.js, Next.js</li>
+        <li>Python, C, C++</li>
+        <li>Linux CLI & Shell</li>
+        <li>Git, GitHub, Docker</li>
+        <li>Ethical Hacking Fundamentals</li>
+      </ul>
+    </div>
+
+    <div class="achievements">
+      <h2 class="section-title">Achievements & Certifications</h2>
+      <ul>
+        <li>Global Game Jam 2025</li>
+        <li>Pitch-a-thon at Karnavati University</li>
+        <li>Code-a-thon at Karnavati University</li>
+        <li>Getting Started with Linux Fundamentals (RH104)</li>
+        <li>Introduction to Linux (LFS101)</li>
+        <li>Red Hat System Administration I (RH124)</li>
+        <li>Ariro 3.0 Code-a-thon at Karnavati University</li>
+        <li>Certified AI Prompt Engineer by BE10X</li>
+      </ul>
+    </div>
+
+    <button class="button" id="downloadResume">Download Resume as PDF</button>
+    <!-- Back to Dashboard Button -->
+  <div class="back-button-container">
+    <button class="button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </div>
+
+
+  </div>
+
+  <script>
+    document.getElementById("downloadResume").addEventListener("click", function () {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(22);
+      doc.text("Kavya Patel", 20, 30);
+
+      doc.setFontSize(16);
+      doc.text("Contact Info:", 20, 50);
+      doc.text("Email: kavya.patel@example.com", 20, 60);
+      doc.text("Phone: +91 9876543210", 20, 70);
+      doc.text("LinkedIn: linkedin.com/in/kavyapatel", 20, 80);
+      doc.text("GitHub: github.com/kavyapatel", 20, 90);
+
+      doc.setFontSize(18);
+      doc.text("About Me", 20, 110);
+      doc.setFontSize(14);
+      doc.text("I'm a passionate Full-Stack Developer with a deep interest in Cybersecurity...", 20, 120);
+
+      doc.setFontSize(18);
+      doc.text("Skills", 20, 140);
+      doc.setFontSize(14);
+      doc.text("• HTML5, CSS3, JavaScript (ES6+)", 20, 150);
+      doc.text("• React.js, Vue.js, Next.js", 20, 160);
+      doc.text("• Python, C, C++", 20, 170);
+      doc.text("• Linux CLI & Shell", 20, 180);
+      doc.text("• Git, GitHub, Docker", 20, 190);
+      doc.text("• Ethical Hacking Fundamentals", 20, 200);
+
+      doc.setFontSize(18);
+      doc.text("Achievements & Certifications", 20, 220);
+      doc.setFontSize(14);
+      doc.text("• Global Game Jam 2025", 20, 230);
+      doc.text("• Pitch-a-thon at Karnavati University", 20, 240);
+      doc.text("• Code-a-thon at Karnavati University", 20, 250);
+      doc.text("• Getting Started with Linux Fundamentals (RH104)", 20, 260);
+      doc.text("• Introduction to Linux (LFS101)", 20, 270);
+      doc.text("• Red Hat System Administration I (RH124)", 20, 280);
+      doc.text("• Ariro 3.0 Code-a-thon at Karnavati University", 20, 290);
+      doc.text("• Certified AI Prompt Engineer by BE10X", 20, 300);
+
+      doc.save("Kavya_Patel_Resume.pdf");
+    });
+
+
+  </script>
+
+</body>
+</html>

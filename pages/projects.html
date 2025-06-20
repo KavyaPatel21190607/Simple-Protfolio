@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #dcd6f7;
+      --lavender-dark: #a29bfe;
+      --text: #333350;
+      --bg-card: #ffffffcc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e6e0f8, #c4bfff);
+      color: var(--text);
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--lavender-dark);
+    }
+
+    .project-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .project h2 {
+      color: var(--lavender-dark);
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      line-height: 1.6;
+    }
+
+    ul.features {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      max-height: 0;
+    }
+
+    ul.features li::before {
+      content: '✔';
+      color: var(--lavender-dark);
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .project {
+        padding: 20px;
+      }
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-button {
+      background-color: var(--lavender-dark);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(108, 92, 231, 0.3);
+    }
+
+    .back-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 My Projects</h1>
+  </header>
+
+  <div class="project-container">
+    <div class="project" id="project1">
+      <h2>🌾 Kissan Kalyan Platform</h2>
+      <p>This is a comprehensive digital agriculture platform built with React.js, TypeScript, and modern frontend technologies. It is designed to empower Indian farmers by offering tools and information that enhance their productivity and access to resources.</p>
+      <ul class="features">
+        <li>Locate nearby cold storage facilities using integrated map data.</li>
+        <li>Digital system to book tractors and farming equipment on rent.</li>
+        <li>AI-based pest alert system tailored to location and season.</li>
+        <li>Pesticide recommendations based on real-time data and analysis.</li>
+        <li>Live weather updates and forecasts through external APIs.</li>
+        <li>Smart AI assistant trained on Indian agriculture and schemes.</li>
+        <li>Robust OTP system for secure user authentication.</li>
+      </ul>
+    </div>
+
+    <div class="project" id="project2">
+      <h2>🍎 AI-Based Fruit and Food Classifier</h2>
+      <p>This AI-powered application uses TensorFlow and computer vision to detect and classify fruits and food items either through uploaded images or real-time webcam input, offering high accuracy and an intuitive user interface.</p>
+      <ul class="features">
+        <li>Upload images to identify specific food items or fruits.</li>
+        <li>Use live camera to detect food items in real-time.</li>
+        <li>Built with a comprehensive dataset for high-accuracy detection.</li>
+        <li>Interactive UI showing confidence level and feedback.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Back to Dashboard Button -->
+  <div class="back-button-container">
+    <button class="back-button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.project');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.3 });
+
+      cards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(40px)';
+        observer.observe(card);
+
+        const list = card.querySelector('ul');
+        card.addEventListener('click', () => {
+          const expanded = list.style.maxHeight && list.style.maxHeight !== '0px';
+          list.style.maxHeight = expanded ? '0px' : list.scrollHeight + 'px';
+        });
+
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.innerText = 'Click to toggle features';
+        Object.assign(tooltip.style, {
+          position: 'absolute',
+          bottom: '10px',
+          right: '10px',
+          background: '#a29bfe',
+          color: '#fff',
+          padding: '6px 10px',
+          borderRadius: '10px',
+          fontSize: '0.8rem',
+          opacity: 0,
+          transition: 'opacity 0.3s',
+        });
+
+        card.appendChild(tooltip);
+
+        card.addEventListener('mouseenter', () => tooltip.style.opacity = 1);
+        card.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+
+        card.tabIndex = 0;
+        card.addEventListener('focus', () => card.classList.add('focused'));
+        card.addEventListener('blur', () => card.classList.remove('focused'));
+      });
+
+      // Smooth scroll to projects on load
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Simulate network loading effect on cards
+      setTimeout(() => {
+        cards.forEach(card => card.style.transition = 'all 0.6s ease-in-out');
+      }, 100);
+
+      // Keyboard accessibility toggle
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const active = document.activeElement;
+          if (active && active.classList.contains('project')) {
+            const ul = active.querySelector('ul');
+            const expanded = ul.style.maxHeight && ul.style.maxHeight !== '0px';
+            ul.style.maxHeight = expanded ? '0px' : ul.scrollHeight + 'px';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
